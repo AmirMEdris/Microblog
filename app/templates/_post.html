@@ -1,8 +1,12 @@
-    <table class="table table-hover">
+<table class="table table-hover">
+    <tbody>
+        {% for post in posts %}
         <tr>
             <td>
                 <br>
-                <span id="post{{ post.id }}">{{ post.body }}</span>
+                <span>{{ post.body }}</span>
             </td>
         </tr>
-    </table>
+        {% endfor %}
+    </tbody>
+</table>

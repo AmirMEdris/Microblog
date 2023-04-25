@@ -14,12 +14,8 @@ from app.main import bp
 @bp.route('/', methods=['GET', 'POST'])
 @bp.route('/index', methods=['GET', 'POST'])
 def index():
-    posts = [Post(body='my first post!', user_id=1, language='EN'),
-             Post(body='my second post!', user_id=2, language='EN'),
-             Post(body='my third post!', user_id=3, language='EN'),
-             Post(body='my fourth post!', user_id=1, language='EN'),
-             Post(body='my fifth post!', user_id=2, language='EN')]
-    return render_template('index.html', title=_('Home'), posts=posts)
+    posts = Post.query.all()
+    return render_template('index.html', posts=posts)
 
 
 @bp.route('/explore')
